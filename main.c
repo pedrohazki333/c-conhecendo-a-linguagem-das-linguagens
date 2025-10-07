@@ -6,9 +6,18 @@ int main()
 {
 
     // Imprime o cabecalho do nosso jogo
-    printf("****************************************\n");
-    printf("*Bem vindo ao nosso jogo de adivinhacao*\n");
-    printf("****************************************\n");
+    printf("        ,     \\    /      ,              \n");
+    printf("       / \\    )\\__/(     / \\           \n");
+    printf("      /   \\  (_\\  /_)   /   \\          \n");
+    printf(" ____/_____\\__\\@  @/___/_____\\____     \n");
+    printf("|             |\\../|              |      \n");
+    printf("|              \\VV/               |      \n");
+    printf("|        --Adivinhation--         |       \n");
+    printf("|_________________________________|       \n");
+    printf(" |    /\\ /      \\\\       \\ /\\    |   \n");
+    printf(" |  /   V        ))       V   \\  |       \n");
+    printf(" |/     `       //        '     \\|       \n");
+    printf(" `              V                '        \n\n\n");
 
     int segundos = time(0);
     srand(segundos);
@@ -17,10 +26,33 @@ int main()
     int chute;
     int tentativas = 1;
     double pontos = 1000;
+    int numeroTentativas;
+    int acertou = 0;
 
-    while (1)
+    int nivel;
+    printf("Qual o nivel de dificuldade?\n");
+    printf("(1)Facil (2)Medio (3)Dificil\n");
+    printf("Escolha: ");
+    scanf("%d", &nivel);
+
+    switch (nivel)
     {
-        printf("Tentativa %d.\n", tentativas);
+        case 1:
+            numeroTentativas = 20;
+            break;
+
+        case 2:
+            numeroTentativas = 10;
+            break;
+
+        default:
+            numeroTentativas = 5;
+            break;
+    }
+
+    for (int i = 1; i <= numeroTentativas; i++)
+    {
+        printf("\nTentativa %d/%d.\n", tentativas, numeroTentativas);
         printf("Digite seu chute: ");
         scanf("%d", &chute);
 
@@ -30,23 +62,21 @@ int main()
             continue;
         }
 
-        if (chute == numeroSecreto)
+        acertou = (chute == numeroSecreto);
+
+        if (acertou)
         {
-            printf("\nParabens, o numero secreto era %d!\n", numeroSecreto);
-            printf("Jogue novamente, voce e um bom jogador!\n\n");
             break;
         }
 
         else if (chute > numeroSecreto)
         {
             printf("Seu chute foi maior que o numero secreto.\n");
-            printf("Tente novamente!\n\n");
         }
 
         else
         {
             printf("Seu chute foi menor que o numero secreto.\n");
-            printf("Tente novamente!\n\n");
         }
 
         tentativas++;
@@ -54,7 +84,103 @@ int main()
         pontos = pontos - pontosPerdidos;
     }
 
-    printf("Fim do jogo.\n");
-    printf("Voce acertou em %d tentativas.", tentativas);
-    printf("Voce fez %.2f pontos.", pontos);
+    printf("\nFim do jogo.\n");
+
+    if (acertou)
+    {                                                                                                                                                                          
+        printf("                                         @@@@@@@@@@@@                               \n");           
+        printf("                                         @@@@@@@@@@@@                               \n");           
+        printf("                                     @@@@@@@@@@@@@@@@@@@@                           \n");          
+        printf("                                    @@@@@@@@@@@@@@@@@@@@@@                          \n");          
+        printf("                                    @@   @@@@@@@@@@@@   @@                          \n");          
+        printf("                                      @@@@@@@@@@@@@@@@@@                            \n");          
+        printf("                                           @@@@@@@@                                 \n");          
+        printf("                                             @@@@                                   \n");          
+        printf("                                             @@@@                                   \n");          
+        printf("                                           @@@@@@@@                                 \n");          
+        printf("                                           @@@@@@@@                                 \n");          
+        printf("                                                                                    \n");         
+        printf("                                                                                    \n");          
+        printf("                @@  @@@  @@@@@@@  @@   @@@       @@   @@@  @@@@@@  @@@   @@  @@     \n");          
+        printf("                @@  @@@ @@@   @@  @@   @@@       @@ @ @@@    @@    @@@@@ @@  @@     \n");          
+        printf("                  @@    @@@   @@  @@   @@@       @@@@@@@@    @@    @@@@@@@@  @@     \n");          
+        printf("                  @@     @@@@@@@  @@@@@@@@       @@@ @@@@  @@@@@@  @@@  @@@  @@     \n\n\n");          
+                                                                                                               
+        printf("\nParabens, o numero secreto era %d!\n", numeroSecreto);
+        printf("Voce acertou em %d tentativas.\n", tentativas);
+        printf("Voce fez %.2f pontos.\n", pontos);
+        printf("Jogue novamente, voce e um bom jogador!\n\n");
+    }
+    else
+    {                                                                                           
+        printf("                             @@@@                                                                   \n");
+        printf("                           @-   .-@@                                                                \n");
+        printf("                          -@  .  : :@                                                               \n");
+        printf("                          @  .. .-. +*                                                              \n");
+        printf("                          @  .. :--. @                                                              \n");
+        printf("                          -# .. :... -X                                                             \n");
+        printf("                           @  ..:...  @                                                             \n");
+        printf("                           @  .:..... @                                                             \n");
+        printf("                           @  ....... +-                                                            \n");
+        printf("                    .@@@-  @ ........  @                                                            \n");
+        printf("                 #@@-    -@@  ........ @                                                            \n");
+        printf("                @     ..   -X ........ @                                                            \n");
+        printf("        @@X+-::+@#  .....   @  ....... @                                                            \n");
+        printf("     #@.   .      @  .....  *: ....... @                                                            \n");
+        printf("    @.   .......   @ ...... += ....... @                                                            \n");
+        printf("   @  *@  ........ @  ..... @  ....... @                                                            \n");
+        printf("  #= . =@ .......  @: ....  @  ....... @                                                            \n");
+        printf("  @ .:. @  ....... @  ...  X. ........ @  :=**#XXXXX#*+=:                                           \n");
+        printf("  @ :::  @   ....  @      XX  ........ @ =-.          .:-=#@@@@=                                    \n");
+        printf("  @ :::. .@       +@:-==X@   ......... @   :@@@@@@@@@@=        :+#@@  @@                            \n");
+        printf("  @ .::..  *@@=-@@   #*    ..........  @ @@            @@:  ..:.:    @@@@@                          \n");
+        printf("   * :::..                   ....     -@@   .....   ..   -@ .:..:.:.   @@@@*                        \n");
+        printf("  @  ::.....   ......   +@X... . +@#  *  ......:::.      @: -==--:..    @@: @@                      \n");
+        printf("    @ .:::...........  #@                ..........---:.  @=      .---:   @@  .@@                   \n");
+        printf("    =@ .::..........  @.  .................             -@@  .        :-   @ ..  #@                 \n");
+        printf("      @. .::.:...... @   .... ..........     -*XX@@X@@@@@+    .....      . @ ..:.  +@               \n");
+        printf("       @*. .........   . ....:-:......   +@@+=-: :=##=     ......... ..    . ....:.  +@             \n");
+        printf("        @@    ..............   ...    X@                ... ......   .  .   =-:...:. .@             \n");
+        printf("           @@@-                     *@.  @@@@@@@@@@    .......                 ::::.::. #@          \n");
+        printf("          @  -X@@@@#*=:.     :=*X@@X  @@@@        @@@   ....     +@@@@.         :-.::.:. -@         \n");
+        printf("         @  .   .-=+##X@@@@@@@XX#=   @@             @@  ..   .@@@@@@@@@@@     .  .-.:.:.: :@        \n");
+        printf("        @  ::.:.      ::.:::.      @@                @  .   @@          @@@   ..  .-:...:. .@       \n");
+        printf("       @  :.::.......             @@                 :@   =@              @@    .. .:::..:.  @      \n");
+        printf("      =* ::.::::::.............  .@                   @  @@                @   ...  -:..:::: :@     \n");
+        printf("      @ ...::.........:........  @              @@@  -@ #@                 @#  ....  -....::: X:    \n");
+        printf("     #= ::::.:.................  @          @-@@@ @  @  @     =@@@         @@  ..... :.:.:.... @    \n");
+        printf("     @ .:.:.........:..    .... =@          @ @@= @  @ XX   @  @  @        @:  .....  :...:::. :@   \n");
+        printf("     @ ::::.:...:.... .-#=.     =@          -@X. @  @  @   @#@@@@ @        @  ......  ::....:.. @   \n");
+        printf("    -# ..::.........::.   :@@@-  @                 @   @   @* @  @        @=  ...... ::...:.::. +*  \n");
+        printf("    @- :.::..::......:=*#*-    +@@.              @@  . @+   @@@@X        @+           :...:.:::. @  \n");
+        printf("    @. :.::...:...::..  .*X##+    :@           @@   ..  @              X@@=**+==*#@@@ .....:::.: @  \n");
+        printf("    X- :.::.....::....       ..:    .@*    .@@@    ...  +@        =@@@.         .     ::...:.... @  \n");
+        printf("    -# :.::..:.:              .....    @@@@=     ......   @@+  X@+       .-=*##+:      :::.:::.: @  \n");
+        printf("     @ :.::..:.: #@@@@@@@*=-: ........       ...........    @@.      ...           .      .::::: @  \n");
+        printf("     @ :.::..:.:.       -@       .. ...   .............. =@      ....... #@@@X-=@@:=+@@@*...:::: @  \n");
+        printf("     #= :::.:..........   @@                                ...........      -@@         ...:::. @  \n");
+        printf("      @ ..:.::......:....  @@@@@*               . ... .                   @@@@   ........::::.: .@  \n");
+        printf("      X= .::.:..:........  .@@@@@@@@@@@@-+@@@@@#+=--::::::::-=*X@@@@   @@@@=    .......:...:::. @   \n");
+        printf("       @. ...:............  +@@X##X@@@@@@       =+*##XXXXXX##+:      @@@@     ...........:::.:. @   \n");
+        printf("        @ .::.:.::.........  .@@@##X###@@@                        @@@@@     ...:......:.:::::: @    \n");
+        printf("        -@ .:::.............   @@@X#####@@@@@                 @@@@@@.    ................::.: :@    \n");
+        printf("         X* ..:.....:...:....   -@@@X######@@@@@@@@@@@@@@@@@@@@@@*     ..............::::.::  @     \n");
+        printf("          X# .:.:...........:..   =@@@@X##X@@@@@@@@@@X=:=X@@@@X     .............::.::.::.:  @      \n");
+        printf("           +@  ::..::.:.:.......     @@@@@@@+    *=   .+XX*.     ..............:..:...::.:  @       \n");
+        printf("             @  .:::..............      *@@@@@@@@@@@@@@-       ..............:......::::: :@        \n");
+        printf("              @=  :.....:...:........                      ....................:.::-..:. :@         \n");
+        printf("               #@. .:::.:::............=**+:        -+***...............::.::.::::.  : .*@          \n");
+        printf("                 @*  .::....:.........    :=+++*****+:    ..........:........:::.   .  @            \n");
+        printf("                   @#. ..:.............:..             .................:::-::.. ... @@             \n");
+        printf("                     @@.  ::::..::::.:.:.:::........:::.....:...:.:::::-:::.   ...:@@               \n");
+        printf("                       +@#.  ..................................:::--::.      .:.*@+                 \n");
+        printf("                          @@#.  .:.:.:...:::.....:::::::::-----::.        .:.+@@                    \n");
+        printf("                             @@X-   ..::.....:..:::-----::..           ..-*@@:                      \n");
+        printf("                                 @@@+-    .:::::.                .  -+#@@@                          \n");
+        printf("                                     :@@@@+=-:              -=**X@@@@                               \n");
+        printf("                                            -*@@@@@@@@@@@@@@@+.                                     \n");
+                                                                                                    
+
+        printf("Voce perdeu, sinto muito.");
+    }
 }
